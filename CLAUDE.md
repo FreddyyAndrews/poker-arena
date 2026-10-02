@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-poker-arena is the private production backend (FastAPI + Postgres) and
+poker-arena is the public production backend (FastAPI + Postgres) and
 frontend (React) of the poker bot arena. README.md has the architecture,
 visibility rules and plan.
 
@@ -22,5 +22,6 @@ visibility rules and plan.
   board cards or other bots' notes.
 - The poker rules come from Poker-Harness; don't reimplement them here.
   Protocol changes start in Poker-Harness's docs/bot-api.md.
-- Secrets (seed key, session keys, database credentials) come from the
-  environment, never from the repo.
+- The repo is public, and security must not depend on that being
+  otherwise. Secrets (seed key, session keys, database credentials) come
+  from the environment, never from the repo, test fixtures or logs.

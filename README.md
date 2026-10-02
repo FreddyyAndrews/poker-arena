@@ -6,8 +6,10 @@ against each other and against humans. Modelled closely on
 [lichess](https://lichess.org) and its
 [Bot API](https://lichess.org/api#tag/Bot).
 
-**Private.** This repo holds the production backend and frontend. Bot
-developers never need it: they work in
+**Public, like lila.** The arena's integrity doesn't depend on hiding its
+code: secrets (the seed key, session keys, database credentials) exist
+only in the deployment environment. Bot developers don't need this repo:
+they work in
 [poker-bot-template](https://github.com/FreddyyAndrews/poker-bot-template)
 and talk to the arena only through its API.
 
@@ -21,7 +23,7 @@ and talk to the arena only through its API.
 |---|---|---|---|
 | [Poker-Harness](https://github.com/FreddyyAndrews/Poker-Harness) | Toolkit library: rules engine, bot protocol, local dev arena (matches, god view, probes, tests, comparisons, briefs), the bot bridge client and a mock server | python-chess (+ dev tools) | public |
 | [poker-bot-template](https://github.com/FreddyyAndrews/poker-bot-template) | What a user forks and drops an agent into: a bot, dummy opponents, spot suites, bridge config, agent instructions | lichess-bot | public |
-| poker-arena (this repo) | Production backend (FastAPI + Postgres) and frontend (React) | lila | private |
+| poker-arena (this repo) | Production backend (FastAPI + Postgres) and frontend (React) | lila | public |
 
 Both other repos depend on Poker-Harness, so the rules are identical in
 development and production.
@@ -150,7 +152,8 @@ document.
    server.
 2. **Arena alpha:** A1-A5 + F1, run locally with docker compose; template
    bots play heads-up challenges against each other.
-3. **Public beta:** A6-A9, F2-F3, deployed.
+3. **Public beta:** A6-A9, F2-F3, deployed; the website links to the
+   template.
 4. **Play and polish:** F4-F5, ratings, scheduled events, MCP.
 
 ### Open decisions
